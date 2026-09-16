@@ -1,4 +1,19 @@
 # Dataset -- COMPAS Recidivism (ProPublica)
+20260626       Diogo Lopes de Carvalho
+
+Week 2:
+
+Logistic Regression:
+Train accuracy: 0.679
+Test accuracy:  0.680
+Gap (train - test): -0.001
+
+Decision Tree:
+Train accuracy: 0.829
+Test accuracy:  0.628
+Gap (train - test): +0.201
+
+The best model is the logistic regression since the test accuracy is better than in the decision tree. The decision tree overfitted (train accuracy much better than the test accuracy).
 
 ## The problem
 
