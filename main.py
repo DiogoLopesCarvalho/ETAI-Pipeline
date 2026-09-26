@@ -11,16 +11,23 @@ This orchestrates the full (deliberately simple) pipeline:
 import yaml
 
 from src.data import load_data
-from src.preprocessing import preprocess
+from src.preprocessing import clean_dataset, preprocess
 from src.model import build_model
 from src.evaluate import evaluate, fairness_report
 from src.results import save_run
+from src.data_diagnostics import flag_invalid_values
 
 
 def load_config(path: str = "config.yaml") -> dict:
     with open(path, "r") as f:
         return yaml.safe_load(f)
+    
+config = load_config()
 
+    # load + diagnose-and-clean (week 3): domain-rule/placeholder -> NaN, category
+    # cleanup, de-duplication, redundant-column removal -- see src/preprocessing.py
+df_raw = load_data(config["data"]["path"])
+df_clean = clean_dataset(df_raw, config["diagnostics"])
 
 def main():
     config = load_config()
@@ -28,7 +35,7 @@ def main():
     df = load_data(config["data"]["path"])
 
     X_train, X_test, y_train, y_test, extras_test = preprocess(
-        df,
+        df_clean,
         target=config["data"]["target"],
         sensitive_attr=config["data"]["sensitive_attr"],
         drop_columns=config["data"]["drop_columns"],
@@ -55,3 +62,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

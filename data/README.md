@@ -1,5 +1,22 @@
 # Dataset -- COMPAS Recidivism (ProPublica)
 20260626       Diogo Lopes de Carvalho
+Week 3:
+Results After Cleaning:
+
+Logistic Resgression:
+Train accuracy: 0.678
+Test accuracy:  0.655
+Gap (train - test): +0.023
+
+Decision Tree:
+Train accuracy: 0.799
+Test accuracy:  0.604
+Gap (train - test): +0.196
+
+In the logistic regression, while the training accuracy remained almost identical, the test accuracy had a slight drop, introducing a minor gap. This suggests that the raw data might have contained "noise" that artificially inflated the test performance.
+About the decision tree, the training accuracy decreased, indicating that the decision tree was memorizing invalid values. With the data cleaning, the tree fits the training set slightly less, but the test accuracy also adjusted downward, keeping the overfitting gap relatively stable.
+Despite this changes, logistic regression remains the superior model.
+
 
 Week 2:
 
