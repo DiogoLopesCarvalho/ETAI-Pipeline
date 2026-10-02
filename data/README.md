@@ -1,5 +1,39 @@
 # Dataset -- COMPAS Recidivism (ProPublica)
 20260626       Diogo Lopes de Carvalho
+
+Week 4:
+Results After Preprocessing:
+
+Logistic Regression:
+Train accuracy: 0.676
+Test accuracy:  0.658
+Gap (train - test): +0.018
+
+
+Decision Tree:
+Train accuracy: 0.686
+Test accuracy:  0.601
+Gap (train - test): +0.086
+
+In the logistic regression, the performance gap descreased fron 0.023 to 0.018, concluding that the results remained identical, with a slight increase in test accuracy.
+Regarding the decision tree, the training accuracy decreased drastically (from 0.799 to 0.686), indicating that the model was previously memorizing the training set. With the Week 4 preprocessing, the tree fits the training set much less, and while the test accuracy adjusted slighly downward (from 0.604 to 0.601), the overfitting gap was massively reduced (from 0.196 to 0.086).
+
+Dummy:
+Train accuracy: 0.549
+Test accuracy:  0.550
+Gap (train - test): -0.001
+
+The 0.549 training accuracy tells us that the majority class makes up about 55% of the dataset. A dummy model doesn't actually memorize patterns, so it is imposible for it to overfit. This is confirmed by the near zero (or zero) difference between train and test accuracy. Besides this, the near zero gap also proves that the train/test split is perfectly stratified.
+
+Random Forest:
+Train accuracy: 0.728
+Test accuracy:  0.652
+Gap (train - test): +0.075
+
+The random forest achieved a training accuracy of 0.728 and a test accuracy of 0.652, resulting in a controlled overfitting gap of 0.075. It outperforms the single decision tree and the dummy, though it remains slightly behind the logistic regression in overall stability and test performance. 
+
+The Logistic Regression is still the best model.
+
 Week 3:
 Results After Cleaning:
 
